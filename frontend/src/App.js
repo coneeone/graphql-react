@@ -20,6 +20,7 @@ const LAUNCHES = gql`query GetLaunches {
     launch_date_utc
     launch_success
     mission_name
+    details
     rocket {
       rocket {
         name
@@ -59,7 +60,7 @@ function Launches () {
             <p><b>Rocket : </b>{ el.rocket.rocket.name }</p>
             <p><b>Launch success : </b>{ el.launch_success }</p>
             <p><b>Launch date : </b>{ new Date(el.launch_date_utc).toLocaleDateString('fr-FR') }</p>
-            <p><b>Rocket : </b>{ el.rocket.rocket.name }</p>
+            <b>Details : </b><p>{ el.details || 'no details' }</p>
           </section>
         )
       })}
